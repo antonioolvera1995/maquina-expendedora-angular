@@ -408,7 +408,7 @@ export class Start {
 
     document.getElementById('save')?.click();
 
-     () => {
+     
       (document.getElementById(
         'actu-money'
       ) as HTMLInputElement).innerText = `Saldo actual ${money}€`;
@@ -438,7 +438,7 @@ export class Start {
           document.getElementById('bt-card')?.click();
         }
       } catch (error) {}
-    };
+    
 
     function start() {
       loadingHtml();
