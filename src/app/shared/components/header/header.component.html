@@ -1,5 +1,7 @@
 <header>
 
-    <h1 class="title">Header</h1>
+    <ul *ngFor="let link of links">
+        <li  [routerLink]="['/',go(link)]"  routerLinkActive="activ">{{link}}</li>
+    </ul>
 
 </header>

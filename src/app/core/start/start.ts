@@ -3,13 +3,9 @@ import { load } from './load';
 export class Start {
   constructor() {
     //start();
-
+    let blockHour: boolean = false;
     let money: number = 30;
-    interface Hour {
-      horas: number;
-      minutos: number;
-    }
-    let hour: Hour = { horas: 8, minutos: 0 }; //crear interface
+
     const percentageError: number = 10; // probabilidad de error
 
     let products = load();
@@ -90,19 +86,7 @@ export class Start {
         };
 
         //-----Restriccion del horario de consumo de alcohol-----
-        let blockHour: boolean = false;
-
-        if (id === 8 || id === 9) {
-          let hor: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 22, 23];
-          for (const i of hor) {
-            if (hour.horas === i) {
-              if (hour.horas === 8 && hour.minutos > 0) {
-              } else {
-                blockHour = true;
-              }
-            }
-          }
-        }
+    
         if (!blockHour) {
           if (actuallProduct.stock <= 0) {
             print(
@@ -138,7 +122,7 @@ export class Start {
         divMain.classList.add('div-finally');
         divMain.innerHTML = `  
          <div class="finally-text"><p>${produc.name}</p></div>
-        <div class="finally-img"><img src="./img/img-${produc.id}.jpg" alt=""></div>`;
+        <div class="finally-img"><img src="/assets/img/img-${produc.id}.jpg" alt=""></div>`;
         last.appendChild(divMain);
         let large: number = last.scrollWidth;
         last.scrollLeft = large;
@@ -412,9 +396,6 @@ export class Start {
       (document.getElementById(
         'actu-money'
       ) as HTMLInputElement).innerText = `Saldo actual ${money}€`;
-      (document.getElementById(
-        'actu-hour'
-      ) as HTMLInputElement).innerText = `Hora: 0${hour.horas}:0${hour.minutos}`;
       try {
         let ver: string = localStorage.getItem('name') as string;
         if (ver.length > 0) {
@@ -443,48 +424,6 @@ export class Start {
     function start() {
       loadingHtml();
     
-      // -------------------------Relog--------------------
-      setInterval(() => {
-        let hor: string;
-        let min: string;
-
-        hour.minutos++;
-        // -----minutos-----
-        if (hour.minutos > 60) {
-          hour.horas++;
-          hour.minutos = 0;
-        }
-        // -----horas-----
-        if (hour.horas > 23) {
-          hour.horas = 0;
-        }
-        // --------------------------------
-
-        if (hour.minutos < 10) {
-          min = `0${hour.minutos}`;
-        } else {
-          min = `${hour.minutos}`;
-        }
-
-        if (hour.horas < 10) {
-          hor = `0${hour.horas}`;
-        } else {
-          hor = `${hour.horas}`;
-        }
-
-        (document.getElementById(
-          'actu-hour'
-        ) as HTMLInputElement).innerText = `Hora: ${hor}:${min}`;
-      }, 100);
-
-      setInterval(() => {
-        let elem = document.querySelectorAll('li');
-        for (let i = 0; i < elem.length; i++) {
-          if (i > 8) {
-            elem[0].remove();
-          }
-        }
-      }, 500);
     }
 
     function print(text: string) {

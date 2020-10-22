@@ -1,5 +1,6 @@
 import { Start } from './start';
 import { Component, OnInit } from '@angular/core';
+import { ClockService, Hour } from 'src/app/shared/services/clock.service';
 
 @Component({
   selector: 'app-start',
@@ -7,13 +8,90 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./start.component.css'],
 })
 export class StartComponent implements OnInit {
-  constructor() {}
+  hour:Hour; 
+  actuHor:string;
+  constructor(private clo:ClockService) {}
 
   ngOnInit(): void {
     new Start();
     styles();
+    this.clock();
   }
+  
+clock(){
+  setInterval(() => {
+    this.hour = this.clo.hour;
+    
+
+    let hor: string;
+    let min: string;
+    // --------------------------------
+    if (this.hour.minutos < 10) {
+      min = `0${this.hour.minutos}`;
+    } else {
+      min = `${this.hour.minutos}`;
+    }
+
+    if (this.hour.horas < 10) {
+      hor = `0${this.hour.horas}`;
+    } else {
+      hor = `${this.hour.horas}`;
+    }
+
+    this.actuHor = `Hora: ${hor}:${min}`;
+
+  }, 500);
+
+
+
 }
+
+
+stopAlcohol(){
+  let blockHour: boolean = false; //start para bloquear la compra
+  // //-----Restriccion del horario de consumo de alcohol-----
+  // let blockHour: boolean = false;
+ 
+  // if (id === 8 || id === 9) {
+  //   let hor: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 22, 23];
+  //   for (const i of hor) {
+  //     if (this.hour.horas === i) {
+  //       if (this.hour.horas === 8 && this.hour.minutos > 0) {
+  //       } else {
+  //         blockHour = true;
+  //       }
+  //     }
+  //   }
+  // }
+  // if (!blockHour) {
+  //   if (actuallProduct.stock <= 0) {
+  //     print(
+  //       `Lo sentimos, nos hemos quedado sin Stock de: ${actuallProduct.name} ${actuallProduct.subName}`
+  //     );
+  //   } else {
+  //     sellProduct(actuallProduct);
+  //   }
+  // } else {
+  //   print(
+  //     'Restricciones al consumo de alcohol entre las 22h y las 8h establecidas por el gobierno.'
+  //   );
+  // }
+ 
+ 
+   }
+ 
+ 
+
+
+
+
+
+
+
+
+
+}
+
 
 function styles() {
   let style = document.createElement('style');
@@ -357,5 +435,7 @@ function styles() {
   let secti = document.querySelector('section');
   secti.appendChild(style);
   
+
+
 
 }
