@@ -5,8 +5,8 @@ import { RechargeCardComponent } from './core/recharge-card/recharge-card.compon
 import { StartComponent } from './core/start/start.component';
 
 const routes: Routes = [
-  { path: '', component: PurchasedProductsComponent },
-  { path: '', component: RechargeCardComponent },
+  { path: 'purchased-products', component: PurchasedProductsComponent },
+  { path: 'recharge-card', component: RechargeCardComponent },
   { path: '', component: StartComponent , pathMatch: 'full' },
   { path: '**', component: StartComponent, pathMatch: 'full' }
 ];
