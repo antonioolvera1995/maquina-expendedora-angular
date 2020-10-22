@@ -5,13 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class ProductsService {
 products:Products[];
-  constructor() {}
+  constructor() { this.products = load();}
 
 load(){
-  this.products = load();
+ 
 }
 
 getProducts():Products[]{
+  
   return this.products;
 }
 

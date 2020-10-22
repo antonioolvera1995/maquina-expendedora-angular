@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  activ:boolean = false;
   links:string[];
   constructor(private router: Router ) { 
 
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
     this.links = ['Products', 'Purchased Products', 'Recharge Card']
 
   }
+
 
   go(id2:string):string{
     let id:string = id2.toLocaleLowerCase();

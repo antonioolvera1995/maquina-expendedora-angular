@@ -9,13 +9,19 @@ header {
 
 ul {
   list-style: none;
+  user-select: none;
+  
 }
 
 li {
   color: white;
   margin: 1em;
+  text-decoration: none;
+  outline:none;
 }
+
 
 .activ {
   color: greenyellow;
+ 
 }

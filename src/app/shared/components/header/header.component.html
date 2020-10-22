@@ -1,7 +1,7 @@
 <header>
 
-    <ul *ngFor="let link of links">
-        <li  [routerLink]="['/',go(link)]"  routerLinkActive="activ">{{link}}</li>
+    <ul *ngFor="let link of links; index as i;" >
+        <li (click)="activ=true" [ngClass]="{'activ': !activ&&i===0}" [routerLink]="['/',go(link)]"  routerLinkActive="activ"><p>{{link}}</p></li>
     </ul>
 
 </header>
