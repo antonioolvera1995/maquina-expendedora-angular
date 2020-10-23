@@ -12,7 +12,7 @@ export class ClockService {
 
   start() {
     // -------------------------Relog--------------------
-    setInterval(() => {
+    const clockInterval = setInterval(() => {
       this.hour.minutos++;
       // -----minutos-----
       if (this.hour.minutos > 60) {

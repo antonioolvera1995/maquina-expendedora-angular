@@ -1,4 +1,44 @@
 
+  .main {
+    justify-content: center;
+    display: grid;
+    width: 80%;
+    height: auto;
+    margin: auto;
+    margin-top: 5em;
+  
+    grid-template-areas:
+      "a b c"
+      "d e f"
+      "g h i"
+      "j k l"
+      "m m m";
+    grid-template-columns: 15em 15em 15em;
+    grid-template-rows: 22em 22em 22em 22em 22em;
+  }
+
+  
+  
+
+  
+  .finally {
+    display: flex;
+    width: 98.5%;
+    height: 60%;
+    grid-area: m;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5em;
+    margin: 1em;
+    background-color: rgb(230, 230, 230);
+      box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.45);
+  }
+  
+  
+  
+
+
+
    .clock-1 {
     display: flex;
     justify-content: center;
@@ -197,4 +237,33 @@
   
   .message-1 > ul > li {
     margin-bottom: 1em;
+  }
+
+
+  /* -------------------------------------------------- */
+
+  .bt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8em;
+    height: 2.5em;
+    background-color: rgb(10, 184, 48);
+    margin-bottom: 1em;
+    border-radius: 0.3em;
+    transition-duration: 100ms;
+    user-select: none;
+  }
+  .bt:hover {
+    transform: scale(1.05, 1.05);
+  }
+  .bt:active {
+    transform: scale(1.1, 1.1);
+    background-color: rgb(10, 214, 54);
+    transition-duration: 10ms;
+  }
+  .bt > p {
+    color: white;
+    font-size: 0.9em;
+    font-weight: 600;
   }

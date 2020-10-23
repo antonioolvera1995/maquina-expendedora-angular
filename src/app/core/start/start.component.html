@@ -56,7 +56,10 @@
 
 
     </div>
-    <div class="main" id="main"> </div>
+    <div class="main" id="main">
+        <app-product-card (valueSelect)="valueSelect = $event" *ngFor="let product of productP;index as iii" [ii]="iii" [productss]="productP" (click)="checkIni(iii)" ></app-product-card>
+    
+    </div>
 
 
 </section>

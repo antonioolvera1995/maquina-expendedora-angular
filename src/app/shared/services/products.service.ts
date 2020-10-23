@@ -35,7 +35,7 @@ class Product {
   }
 }
 
-class SubProduct extends Product {
+export class SubProduct extends Product {
   readonly subName: string;
   readonly peso: number;
   public stock: number;

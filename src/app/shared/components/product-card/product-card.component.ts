@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {  SubProduct} from '../../services/products.service';
 
 @Component({
   selector: 'app-product-card',
@@ -8,10 +9,18 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export class ProductCardComponent implements OnInit {
 
-  @Input() parametroEntrada:string = 'sin nombre'; 
+  @Input() productss:SubProduct[];
+  @Input() ii:string;
+  @Output() valueSelect = new EventEmitter<string>();;
+  
   constructor() { 
 
     
+  }
+
+  getValueSelect(e:Event){
+    let text:string = (e.target as HTMLInputElement).value;
+    this.valueSelect.emit(text);
   }
 
   ngOnInit(): void {

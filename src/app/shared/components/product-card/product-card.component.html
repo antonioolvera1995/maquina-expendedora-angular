@@ -1,1 +1,33 @@
-<h1>{{parametroEntrada}}</h1>
+<div [class]="'item-'+ii">
+    <div class="title">
+        <p class="title-1">{{productss[ii].product.name}}</p>
+        <p class="title-2"></p>
+        <p>{{productss[ii].product.precio}}€
+            {{productss[ii].product.tipo}} </p>
+    </div>
+    <div class="img"><img [src]="'/assets/img/img-'+ii+'.jpg'" alt=""></div>
+    <div class="bt">
+        <p>COMPRAR</p>
+    </div>
+
+    <div class="select">
+        <select (click)="getValueSelect($event)">
+            <option value="0"> Pequeño {{productss[ii].subProduct[0].peso}} {{
+      productss[ii].subProduct[0].tipo
+    }}</option>
+            <option value="1">Mediano {{productss[ii].subProduct[1].peso}} {{
+      productss[ii].subProduct[0].tipo
+    }}</option>
+            <option value="2">Grande {{productss[ii].subProduct[2].peso}} {{
+      productss[ii].subProduct[0].tipo
+    }}</option>
+        </select>
+    </div>
+
+    <div class="info">
+        <p>Stock: {{productss[ii].subProduct[0].stock}}</p>
+        <p>Precio: {{productss[
+      ii
+    ].subProduct[0].priceCalc()}}€</p>
+    </div>
+</div>
